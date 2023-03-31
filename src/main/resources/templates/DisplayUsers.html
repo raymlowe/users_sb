@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Display Users</title>
+<link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+	<h1>Display Users</h1>
+	<a th:href="@{/ty/user/create}" class="btn btn-primary btn-sm mb-3" >Add User</a>
+	<table border="1">
+		<th>Name</th>
+		<th>Email</th>
+		<th>Telephone</th>
+		<th>Type</th>
+		<th>Active Status</th>
+		<th>GUID</th>
+		<tr th:each="user : ${listUser}">
+			<td th:text="${user.firstName} +' '+ ${user.lastName}"></td>
+			<td th:text="${user.email}"></td>
+			<td th:text="${user.phone}"></td>
+			<td th:text="${user.userType}"></td>
+			<td th:text="${user.isActive}"></td>
+			<td th:text="${user.id}"></td>
+		</tr>
+	</table>
+</body>
+</html>
